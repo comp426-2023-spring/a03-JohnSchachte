@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-import {rps_game} from '../lib/rpslib.js'
+import {rps_game} from '../lib/rpsls.js'
 import arg_parser from 'minimist'
 
 const input_args = arg_parser(process.argv.slice(2))
