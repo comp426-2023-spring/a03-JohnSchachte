@@ -1,39 +1,43 @@
 #!/usr/bin/env node
-import {rps_game} from '../lib/rpsls.js'
-import arg_parser from 'minimist'
 
-const input_args = arg_parser(process.argv.slice(2))
+import { rps } from '../lib/rpsls.js'
+import minimist from 'minimist'
 
-const usage_info = `How to use: node-rps [CHOICE]
+
+const args = minimist(process.argv.slice(2))
+
+const help_message = `Usage: node-rps [SHOT]
 Play Rock Paper Scissors (RPS)
-  -h, --help      show this help message and exit
-  -r, --rules     show the rules and exit
+  -h, --help      display this help message and exit
+  -r, --rules     display the rules and exit
 Examples:
   node-rps        Return JSON with single player RPS result.
                   e.g. {"player":"rock"}
   node-rps rock   Return JSON with results for RPS played against a simulated opponent.
                   e.g {"player":"rock","opponent":"scissors","result":"win"}`
 
-const game_rules = `Rock Paper Scissors Rules:
+const rules = `Rules for Rock Paper Scissors:
 - Scissors CUTS Paper
 - Paper COVERS Rock
 - Rock CRUSHES Scissors`
 
-if (input_args.help_message || input_args.h) {
-    console.log(usage_info)
+if (args.help_message || args.h) {
+    console.log(help_message)
     process.exit(0)
 }
-if (input_args.rules || input_args.r) {
-    console.log(game_rules)
+if (args.rules || args.r) {
+    console.log(rules)
     process.exit(0)
 }
-let choice = input_args._[0]
+let shoot = args._[0]
+
 
 try {
-    console.log(JSON.stringify(rps_game(choice)))
+    console.log(JSON.stringify(rps(shoot)))
     
-} catch (err) {
-    console.log(usage_info)
-    console.log(game_rules)
+} catch (error) {
+
+    console.log(help_message)
+    console.log(rules)
     process.exit(1)
 }
