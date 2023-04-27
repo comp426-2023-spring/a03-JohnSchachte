@@ -4,11 +4,13 @@
   "description": "a game of rock paper scissors",
   "main": "./lib/rpsls.js",
   "bin": {
-    "node-rpsls": "bin/rps-cli.js"
+    "node-rps": "./bin/rps-cli.js",
+    "node-rpsls": "./bin/rpsls-cli.js"
   },
   "directories": {
     "lib": "lib"
   },
+
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
