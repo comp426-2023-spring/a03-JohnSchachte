@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 import {rps_game} from '../lib/rpslib.js'
 import arg_parser from 'minimist'
 

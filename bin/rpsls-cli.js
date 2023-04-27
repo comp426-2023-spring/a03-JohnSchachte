@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 import { rpsls_game } from "../lib/rpsls.js"
 import arg_parser from 'minimist'
 
